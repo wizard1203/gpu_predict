@@ -12,7 +12,7 @@ import logging
 from pprint import pprint
 from pprint import pformat
 from config import opt
-from dataset import TrainDataset, TestDataset
+from datasets import TrainDataset, TestDataset
 import pprint
 from pprint import pformat
 from trainer import GPUNetTrainer
@@ -273,23 +273,28 @@ def train(train_loader, trainer, epoch):
     for ii, (label_, datas_) in enumerate(train_loader):
         # measure data loading time
         data_time.update(time.time() - end)
-
+        print('==========datas=======[{}]===='.format(datas_))
+        print('==========label=======[{}]===='.format(label_))
         datas, label = datas_.cuda().float(), label_.cuda()
-        trainloss, output = trainer.train_step(label, datas)
+
+
+
+        # trainloss, output = trainer.train_step(label, datas)
+        
         # print('==========output=======[{}]===='.format(output))
         # measure accuracy and record loss
-        acc, pred5, max5out= accuracy(output, label, topk=(1, 5))
-        acc1 = acc[0]
-        acc5 = acc[1]
-        losses.update(trainloss.item(), datas.size(0))
-        top1.update(acc1[0], datas.size(0))
-        top5.update(acc5[0], datas.size(0))
+        # acc, pred5, max5out= accuracy(output, label, topk=(1, 5))
+        # acc1 = acc[0]
+        # acc5 = acc[1]
+        # losses.update(trainloss.item(), datas.size(0))
+        # top1.update(acc1[0], datas.size(0))
+        # top5.update(acc5[0], datas.size(0))
         
-        if lossesnum > losses.val:
-            lossesnum = losses.val
-            print('====iter *{}==== * * *   losses.val :{} Update   ========\n'.format(ii, lossesnum))
-            # best_path = trainer.save(better=True)
-            print("====epoch[{}]--- iter[{}] ** save params *******===".format(epoch, ii))
+        # if lossesnum > losses.val:
+        #     lossesnum = losses.val
+        #     print('====iter *{}==== * * *   losses.val :{} Update   ========\n'.format(ii, lossesnum))
+        #     # best_path = trainer.save(better=True)
+        #     print("====epoch[{}]--- iter[{}] ** save params *******===".format(epoch, ii))
             
         # if best_acc1 < top1.val:
         #     best_acc1 = top1.val
@@ -297,20 +302,20 @@ def train(train_loader, trainer, epoch):
         #     best_path = trainer.save(better=True)
             
         # measure elapsed time
-        batch_time.update(time.time() - end)
-        end = time.time()
+        # batch_time.update(time.time() - end)
+        # end = time.time()
     
-        if (ii + 1) % opt.plot_every == 0:
-            print('Epoch: [{0}][{1}/{2}]\t'
-                  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
-                  'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
-                  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-                  'Acc@1 {top1.val:.3f} ({top1.avg:.3f})\t'
-                  'Acc@5 {top5.val:.3f} ({top5.avg:.3f})'.format(
-                   epoch, ii, len(train_loader), batch_time=batch_time,
-                   data_time=data_time, loss=losses, top1=top1, top5=top5))
-            logging.info(' train-----* ===Epoch: [{0}][{1}/{2}]\t Acc@1 {top1.avg:.3f} Acc@5 {top5.avg:.3f} Loss {loss.val:.4f}'
-              .format(epoch, ii, len(train_loader), top1=top1, top5=top5, loss=losses))
+        # if (ii + 1) % opt.plot_every == 0:
+        #     print('Epoch: [{0}][{1}/{2}]\t'
+        #           'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
+        #           'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
+        #           'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
+        #           'Acc@1 {top1.val:.3f} ({top1.avg:.3f})\t'
+        #           'Acc@5 {top5.val:.3f} ({top5.avg:.3f})'.format(
+        #            epoch, ii, len(train_loader), batch_time=batch_time,
+        #            data_time=data_time, loss=losses, top1=top1, top5=top5))
+        #     logging.info(' train-----* ===Epoch: [{0}][{1}/{2}]\t Acc@1 {top1.avg:.3f} Acc@5 {top5.avg:.3f} Loss {loss.val:.4f}'
+        #       .format(epoch, ii, len(train_loader), top1=top1, top5=top5, loss=losses))
         
     
 
