@@ -54,8 +54,8 @@ class gpuDataset:
         # label = self.df['avg_power'].loc[self.li[i]]
         # datas = self.df[self.columns].loc[self.li[i]]
 
-        label = df['avg_power'].iloc[self.li[i]]
-        datas = df.iloc[self.columns, self.li[i]]
+        label = self.df['avg_power'].iloc[self.li[i]]
+        datas = self.df.iloc[self.columns, self.li[i]]
 
         return label, datas
 
