@@ -240,7 +240,7 @@ def train(train_loader, trainer, epoch):
 
         trainloss, output = trainer.train_step(label, datas)
 
-        print('==========output=======[{}]===='.format(output))
+        # print('==========output=======[{}]===='.format(output))
         acc_all, acc_mean = accuracy(output, label)
         # acc1 = acc[0]
         # acc5 = acc[1]

@@ -1,1 +1,11 @@
-CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.6 --epoch 120 --kind aaa --out aaa
+CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.01 --epoch 120 --kind aaa --out aaa
+CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.05 --epoch 120 --kind aaa --out aaa
+CUDA_VISIBLE_DEVICES=2 python train.py main --lr 0.01 --epoch 120 --kind aaa --out aaa
+CUDA_VISIBLE_DEVICES=3 python train.py main --lr 0.005 --epoch 120 --kind aaa --out aaa
+
+CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.001 --epoch 120 --kind aaa0.001  --out aaa0.001  
+CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.0005 --epoch 120 --kind aaa0.0005  --out aaa0.0005  
+CUDA_VISIBLE_DEVICES=2 python train.py main --lr 0.0002 --epoch 120 --kind aaa0.0002  --out aaa0.0002  
+CUDA_VISIBLE_DEVICES=3 python train.py main --lr 0.0001 --epoch 120 --kind aaa0.0001  --out aaa0.0001  
+CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.00005 --epoch 120 --kind aaa0.00005 --out aaa0.00005 
+CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.00002 --epoch 120 --kind aaa0.00002  --out aaa0.00002 
