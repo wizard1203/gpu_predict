@@ -73,8 +73,8 @@ class TrainDataset(Dataset):
         label = t.from_numpy(np.array(label))
         datas = np.array(datas)
         datas = datas.astype(np.float64)
-        print("==========*** =datas : ==============".format(datas))
-        print(type(datas))
+        # print("==========*** =datas : ==============".format(datas))
+        # print(type(datas))
         datas = t.from_numpy(datas)
         datas = datas.contiguous().view(1,13)
         # TODO: check whose stride is negative to fix this instead copy all

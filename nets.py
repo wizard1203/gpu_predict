@@ -61,8 +61,8 @@ class _Transition(nn.Sequential):
 # a example of densenet
 class DenseNet(nn.Module):
     
-    def __init__(self, growth_rate=128, block_config=(4, 8, 16, 12),
-                 num_init_features=1536, bn_size=4, drop_rate=0.5, num_classes=1):
+    def __init__(self, growth_rate=4, block_config=(4, 8, 4),
+                 num_init_features=13, bn_size=4, drop_rate=0.5, num_classes=1):
         
         super(DenseNet, self).__init__()
 
@@ -93,7 +93,7 @@ class DenseNet(nn.Module):
         self.classifier = nn.Linear(num_features, num_classes)
     
     def forward(self, x):
-        x = x.view(-1, 1536)
+        x = x.view(-1, 13)
         features = self.features(x)
         out = F.relu(features, inplace=True)
         # out = F.avg_pool2d(out, kernel_size=7).view(features.size(0), -1)

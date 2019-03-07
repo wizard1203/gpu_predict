@@ -25,7 +25,7 @@ class GPUNetTrainer(nn.Module):
 
         # optimizer
         self.optimizer = t.optim.SGD(self.gpu_net.parameters(), lr = opt.lr, weight_decay = opt.weight_decay, momentum=0.9)
-
+        self.criterion = t.nn.MSELoss(size_average=False)
         # visdom wrapper
         # self.vis = Visualizer(env=opt.env)
 
@@ -47,7 +47,7 @@ class GPUNetTrainer(nn.Module):
         self.optimizer.zero_grad()
         pred = self.forward(datas)
         # print('=======after forward ======pred:{}===='.format(pred))
-        loss = F.nll_loss(pred, label)
+        loss = self.criterion(pred, label)
         # print('=======after cul loss ======loss:{}===='.format(loss))
         loss.backward()
         self.optimizer.step()
