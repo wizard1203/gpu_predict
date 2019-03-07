@@ -106,7 +106,7 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
                 print("==================================================")
 
     if seeout:
-        outf.writelines('* Acc {acc.avl} Loss {loss.val:.4f}\r\n'
+        outf.writelines('* Acc {acc.avg} Loss {loss.val:.4f}\r\n'
                 .format(acc=Acc1, loss=losses))
         outf.writelines('======user config========')
         outf.writelines(pformat(opt._state_dict()))
