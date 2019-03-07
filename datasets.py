@@ -23,7 +23,7 @@ from config import opt
 import logging
 class gpuDataset:
 
-    def __init__(self, begin_num=1, end_num=500, columns, data_dir='./gtx980-high-dvfs-real-small-workload-features.csv', split='train'):
+    def __init__(self, columns, begin_num=1, end_num=500, data_dir='./gtx980-high-dvfs-real-small-workload-features.csv', split='train'):
         """
         Args:
             split:
@@ -64,7 +64,7 @@ class gpuDataset:
 class TrainDataset(Dataset):
     def __init__(self, config, split='train'):
         self.config = config
-        self.db = gpuDataset(config.train_begin, config.train_end, config.columns, split=split)
+        self.db = gpuDataset(config.columns, config.train_begin, config.train_end, config.data_dir, split=split)
 
     def __getitem__(self, idx):
         label, datas = self.db.get_example(idx)
@@ -85,7 +85,7 @@ class TrainDataset(Dataset):
 class TestDataset(Dataset):
     def __init__(self, config, split='test'):
         self.config = config
-        self.db = gpuDataset(config.test_begin, config.test_end, config.columns, split=split)
+        self.db = gpuDataset(config.columns, config.test_begin, config.test_end, config.data_dir, split=split)
 
     def __getitem__(self, idx):
         label, datas = self.db.get_example(idx)
