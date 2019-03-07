@@ -25,7 +25,7 @@ class GPUNetTrainer(nn.Module):
         self.gpu_net = gpu_net
 
         # optimizer
-        self.optimizer = get_optimizer(self.gpu_net)
+        self.optimizer = t.optim.SGD(self.gpu_net.parameters(), lr = opt.lr, weight_decay = opt.weight_decay, momentum=0.9)
 
         # visdom wrapper
         # self.vis = Visualizer(env=opt.env)
