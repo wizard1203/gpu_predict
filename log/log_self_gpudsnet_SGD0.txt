@@ -448,3 +448,382 @@
  'weight_decay': 5e-05}
 20:31:19 - config.py[line:102] - INFO: ==========end============
 20:31:19 - train.py[line:52] - DEBUG: this is a logging debug message
+21:21:49 - config.py[line:99] - INFO: Logging for gpudsnet
+21:21:49 - config.py[line:100] - INFO: ======user config========
+21:21:49 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:21:49 - config.py[line:102] - INFO: ==========end============
+21:21:49 - train.py[line:52] - DEBUG: this is a logging debug message
+21:25:19 - config.py[line:99] - INFO: Logging for gpudsnet
+21:25:19 - config.py[line:100] - INFO: ======user config========
+21:25:19 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:25:19 - config.py[line:102] - INFO: ==========end============
+21:25:19 - train.py[line:52] - DEBUG: this is a logging debug message
+21:26:10 - config.py[line:99] - INFO: Logging for gpudsnet
+21:26:10 - config.py[line:100] - INFO: ======user config========
+21:26:10 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:26:10 - config.py[line:102] - INFO: ==========end============
+21:26:10 - train.py[line:52] - DEBUG: this is a logging debug message
+21:27:01 - config.py[line:99] - INFO: Logging for gpudsnet
+21:27:01 - config.py[line:100] - INFO: ======user config========
+21:27:01 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:27:01 - config.py[line:102] - INFO: ==========end============
+21:27:01 - train.py[line:52] - DEBUG: this is a logging debug message
+21:30:41 - config.py[line:99] - INFO: Logging for gpudsnet
+21:30:41 - config.py[line:100] - INFO: ======user config========
+21:30:41 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:30:41 - config.py[line:102] - INFO: ==========end============
+21:30:41 - train.py[line:52] - DEBUG: this is a logging debug message
+21:31:01 - config.py[line:99] - INFO: Logging for gpudsnet
+21:31:01 - config.py[line:100] - INFO: ======user config========
+21:31:01 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:31:01 - config.py[line:102] - INFO: ==========end============
+21:31:01 - train.py[line:52] - DEBUG: this is a logging debug message
+21:32:22 - config.py[line:99] - INFO: Logging for gpudsnet
+21:32:22 - config.py[line:100] - INFO: ======user config========
+21:32:22 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:32:22 - config.py[line:102] - INFO: ==========end============
+21:32:22 - train.py[line:52] - DEBUG: this is a logging debug message
+21:35:17 - config.py[line:99] - INFO: Logging for gpudsnet
+21:35:17 - config.py[line:100] - INFO: ======user config========
+21:35:17 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:35:17 - config.py[line:102] - INFO: ==========end============
+21:35:17 - train.py[line:52] - DEBUG: this is a logging debug message
+21:35:52 - config.py[line:99] - INFO: Logging for gpudsnet
+21:35:52 - config.py[line:100] - INFO: ======user config========
+21:35:52 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:35:52 - config.py[line:102] - INFO: ==========end============
+21:35:52 - train.py[line:52] - DEBUG: this is a logging debug message
+21:36:16 - config.py[line:99] - INFO: Logging for gpudsnet
+21:36:16 - config.py[line:100] - INFO: ======user config========
+21:36:16 - config.py[line:101] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:36:16 - config.py[line:102] - INFO: ==========end============
+21:36:16 - train.py[line:52] - DEBUG: this is a logging debug message
+21:37:39 - config.py[line:100] - INFO: Logging for gpudsnet
+21:37:39 - config.py[line:101] - INFO: ======user config========
+21:37:39 - config.py[line:102] - INFO: {'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': '0',
+ 'load_path': None,
+ 'lr': 0.001,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'predict',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'plot_every': 10,
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}
+21:37:39 - config.py[line:103] - INFO: ==========end============
+21:37:39 - train.py[line:52] - DEBUG: this is a logging debug message
+21:37:44 - train.py[line:308] - INFO:  train-----* ===Epoch: [0][9/33]	 Acc % [[-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]] Loss 13.7819
+21:37:44 - train.py[line:308] - INFO:  train-----* ===Epoch: [0][19/33]	 Acc % [[-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]] Loss 17.3604
+21:37:44 - train.py[line:308] - INFO:  train-----* ===Epoch: [0][29/33]	 Acc % [[-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]
+ [-1.]] Loss 22.0995

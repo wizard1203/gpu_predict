@@ -266,7 +266,7 @@ def train(train_loader, trainer, epoch):
         data_time.update(time.time() - end)
         # print('==========datas=======[{}]===='.format(datas_))
         # print('==========label=======[{}]===='.format(label_))
-        datas, label = datas_.cuda().float(), label_.cuda()
+        datas, label = datas_.cuda().float(), label_.cuda().float()
 
 
 
@@ -291,7 +291,7 @@ def train(train_loader, trainer, epoch):
         #     print('===== * * *   best_acc1 :{} Update   ========\n'.format(best_acc1))
         #     best_path = trainer.save(better=True)
             
-        measure elapsed time
+       
         batch_time.update(time.time() - end)
         end = time.time()
     
@@ -313,8 +313,8 @@ def accuracy(output, target):
 
         batch_size = target.size(0)
         
-        pred = output.numpy()
-        label = target.numpy()
+        pred = output.cpu().numpy()
+        label = target.cpu().numpy()
 
         acc = (pred - label) / label
 

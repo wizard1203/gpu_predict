@@ -40,6 +40,7 @@ class Config:
     # set gpu :
     # gpu = True
 
+    plot_every = 10
     # training
     epoch = 120
 

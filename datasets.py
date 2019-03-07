@@ -70,7 +70,10 @@ class TrainDataset(Dataset):
 
     def __getitem__(self, idx):
         label, datas = self.db.get_example(idx)
+        label = label.astype(np.float)
         label = t.from_numpy(np.array(label))
+        label = label.contiguous().view(1)
+
         datas = np.array(datas)
         datas = datas.astype(np.float64)
         # print("==========*** =datas : ==============".format(datas))
