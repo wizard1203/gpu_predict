@@ -55,7 +55,7 @@ class gpuDataset:
         # datas = self.df[self.columns].loc[self.li[i]]
 
         label = self.df['avg_power'].iloc[self.li[i]]
-        datas = self.df.iloc[self.columns, self.li[i]]
+        datas = self.df.iloc[self.li[i], self.columns].values
 
         return label, datas
 
@@ -72,9 +72,11 @@ class TrainDataset(Dataset):
         label, datas = self.db.get_example(idx)
         label = t.from_numpy(np.array(label))
         datas = np.array(datas)
-
+        datas = datas.astype(np.float64)
+        print("==========*** =datas : ==============".format(datas))
+        print(type(datas))
         datas = t.from_numpy(datas)
-        datas = datas.contiguous().view(1,96,16)
+        datas = datas.contiguous().view(1,13)
         # TODO: check whose stride is negative to fix this instead copy all
         
 
@@ -95,7 +97,7 @@ class TestDataset(Dataset):
         datas = np.array(datas)
 
         datas = t.from_numpy(datas)
-        datas = datas.contiguous().view(1,96,16)
+        datas = datas.contiguous().view(1,13)
         # TODO: check whose stride is negative to fix this instead copy all
 
         return label, datas
