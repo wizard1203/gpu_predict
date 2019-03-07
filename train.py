@@ -134,8 +134,8 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
                       'Acc {acc} ({acc})\t'.format(
                        i, len(val_loader), batch_time=batch_time, loss=losses,
                        acc=acc))
-                print(' *Test:::::::: label {label} pred {label}'
-                            .format(label=label, pred=pred))    
+                print(' *Test:::::::: label {label} pred {pred}'
+                            .format(label=target, pred=output))    
         print(' *Test:::::::: Acc {acc} Loss {loss.val:.4f}'
               .format(acc=acc, loss=losses))
     if seeout:
@@ -144,7 +144,7 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
         outf.writelines('======user config========')
         outf.writelines(pformat(opt._state_dict()))
     outf.close()
-    return top1.avg, top5.avg
+    return acc
 
 
 def main_worker():
@@ -208,7 +208,7 @@ def main_worker():
         train(train_dataloader, trainer, epoch)
 
         # evaluate on validation set
-        top1avr, _ = validate(test_dataloader, model, criterion, seeout=False)
+        top1avr = validate(test_dataloader, model, criterion, seeout=False)
 
         # if best_acc1 < top1avr:
         #     best_acc1 = top1avr
