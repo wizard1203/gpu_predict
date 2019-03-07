@@ -1,0 +1,43 @@
+* Acc [[-0.09464221]
+ [-0.074651  ]
+ [-0.0705993 ]
+ [ 0.11767178]
+ [ 0.1145916 ]
+ [ 0.08894658]
+ [ 0.15161353]
+ [-0.13463219]
+ [ 0.0911986 ]
+ [ 0.07338016]
+ [-0.07564548]
+ [-0.14616337]
+ [-0.14618082]
+ [ 0.0556688 ]
+ [ 0.09212653]
+ [-0.25558293]] Loss 0.3558
+======user config========{'arch': 'gpudsnet',
+ 'columns': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+ 'customize': True,
+ 'data_dir': './gtx980-high-dvfs-real-small-workload-features.csv',
+ 'epoch': 120,
+ 'evaluate': False,
+ 'kind': 'aaa',
+ 'load_path': None,
+ 'lr': 3.9135393000000006e-06,
+ 'lr_decay': 0.33,
+ 'norm_mean': 0.0,
+ 'norm_std': 1.0,
+ 'optim': 'SGD',
+ 'out': 'aaa',
+ 'out_pred_dir': '/home/zhtang/water/txt/',
+ 'plot_every': 10,
+ 'pretrained': None,
+ 'save_path': '~/water/modelparams',
+ 'test_begin': 525,
+ 'test_end': 749,
+ 'test_num': 10000,
+ 'test_num_workers': 8,
+ 'train_begin': 0,
+ 'train_end': 524,
+ 'train_num_workers': 8,
+ 'use_adam': False,
+ 'weight_decay': 5e-05}

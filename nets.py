@@ -97,7 +97,6 @@ class DenseNet(nn.Module):
         features = self.features(x)
         # out = F.relu(features, inplace=True)
         # out = F.avg_pool2d(out, kernel_size=7).view(features.size(0), -1)
-        out = self.classifier(out)
-        out = F.log_softmax(out, dim=1)
+        out = self.classifier(features)
         return out
 
