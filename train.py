@@ -134,10 +134,10 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
                       'Acc {acc} ({acc})\t'.format(
                        i, len(val_loader), batch_time=batch_time, loss=losses,
                        acc=acc))
-                print(' *Test:::::::: label {label} pred {pred}'
-                            .format(label=target, pred=output))    
-        print(' *Test:::::::: Acc {acc} Loss {loss.val:.4f}'
-              .format(acc=acc, loss=losses))
+                # print(' *Test:::::::: label {label} pred {pred}'
+                #             .format(label=target, pred=output))    
+        # print(' *Test:::::::: Acc {acc} Loss {loss.val:.4f}'
+        #       .format(acc=acc, loss=losses))
     if seeout:
         outf.writelines('* Acc {acc} Loss {loss.val:.4f}\r\n'
                 .format(acc=acc, loss=losses))
@@ -295,7 +295,8 @@ def train(train_loader, trainer, epoch):
        
         batch_time.update(time.time() - end)
         end = time.time()
-    
+        print(' *Test:::::::: label {label} pred {pred}'
+                    .format(label=label, pred=output))    
         if (ii + 1) % opt.plot_every == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
@@ -303,10 +304,10 @@ def train(train_loader, trainer, epoch):
                   'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
                   'Acc % {acc} ({acc})\t'.format(
                    epoch, ii, len(train_loader), batch_time=batch_time,
-                   data_time=data_time, loss=losses, acc=acc))
+                   data_time=data_time, loss=losses, acc=1))
 
             logging.info(' train-----* ===Epoch: [{0}][{1}/{2}]\t Acc % {acc} Loss {loss.val:.4f}'
-              .format(epoch, ii, len(train_loader), acc=acc, loss=losses))
+              .format(epoch, ii, len(train_loader), acc=1, loss=losses))
 
 
 def accuracy(output, target):
