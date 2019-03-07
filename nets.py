@@ -20,12 +20,10 @@ class _DenseLayer(nn.Sequential):
         """
         super(_DenseLayer, self).__init__()
         self.add_module('norm1', nn.BatchNorm1d(num_input_features)),
-        # self.add_module('relu1', nn.ReLU(inplace=True)),
-        # self.add_module('conv1', nn.Conv2d(num_input_features, bn_size *
-        #                 growth_rate, kernel_size=1, stride=1, bias=False)),
+        self.add_module('relu1', nn.ReLU(inplace=True)),
         self.add_module('fc1', nn.Linear(num_input_features, bn_size * growth_rate)),
         self.add_module('norm2', nn.BatchNorm1d(bn_size * growth_rate)),
-        # self.add_module('relu2', nn.ReLU(inplace=True)),
+        self.add_module('relu2', nn.ReLU(inplace=True)),
         self.add_module('fc2', nn.Linear(bn_size * growth_rate, growth_rate)),
         self.drop_rate = drop_rate
 
@@ -55,13 +53,13 @@ class _Transition(nn.Sequential):
         """
         super(_Transition, self).__init__()
         self.add_module('norm', nn.BatchNorm1d(num_input_features))
-        # self.add_module('relu', nn.ReLU(inplace=True))
+        self.add_module('relu', nn.ReLU(inplace=True))
         self.add_module('fc', nn.Linear(num_input_features, num_output_features))
 
 # a example of densenet
 class DenseNet(nn.Module):
     
-    def __init__(self, growth_rate=4, block_config=(4, 8, 4),
+    def __init__(self, growth_rate=5, block_config=(4, 6, 8),
                  num_init_features=13, bn_size=4, drop_rate=0.5, num_classes=1):
         
         super(DenseNet, self).__init__()
