@@ -1,4 +1,5 @@
 import cupy as cp
+import numpy as np
 import argparse
 import os
 import random
@@ -53,46 +54,10 @@ def main(**kwargs):
     main_worker()
 
 
-def val_out(**kwargs):
-    """
-    :param kwargs:
-        input  :  CUDA_VISIBLE_DEVICES=0 python train.py val_out --arch waternetsf -kind b1
-                --data_dir ~/water/waterdataset2 --load_path '~/water/waternn/modelparams'
-    :return:
-    """
-    opt._parse(kwargs)
-    print("===========validate & predict mode ===============")
-    criterion = nn.CrossEntropyLoss().cuda()
-    opt.data_dir = kwargs['data_dir']
-    testset = TestDataset(opt)
-    test_dataloader = data_.DataLoader(testset,
-                                       batch_size=128,
-                                       num_workers=opt.test_num_workers,
-                                       shuffle=False, \
-                                       pin_memory=True
-                                       )
-    
-    if kwargs['pretrained'] :
-        print("=> using pre-trained model '{}'".format(opt.arch))
-        model = models.__dict__[kwargs['arch']](pretrained=True)
-    else:
-        print("=> creating model '{}'".format(kwargs['arch']))
-        if opt.customize:
-            print("=> self-defined model '{}'".format(kwargs['arch']))
-            model = mymodels.__dict__[kwargs['arch']]
-        else:
-            model = models.__dict__[kwargs['arch']]()
-    
-    trainer = GPUNetTrainer(model).cuda()
-    trainer.load(kwargs['load_path'], parse_opt=True)
-    print('load pretrained model from %s' % kwargs['loadpath'])
-    acc1, acc5 = validate(test_dataloader, model, criterion, True)
-    
-
-
 def validate(val_loader, model, criterion, outfile='predict', seeout = False):
     batch_time = AverageMeter()
     losses = AverageMeter()
+    Acc1 = AverageMeter()
 
     # switch to evaluate mode
     model.eval()
@@ -113,38 +78,40 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
             output = model(datas)
             loss = criterion(output, target)
             # measure accuracy and record loss
-            acc = accuracy(output, target)
-            # if seeout:
-            #     writepred = pred5.tolist()
-            #     max5out = max5out.tolist()
-            #     for i, item in enumerate(writepred) :
-            #         outf.writelines(str(item).strip('[').strip(']') + ',' + str(max5out[i]).strip('[').strip(']') +
-            #                         ',' + str(target.tolist()[i]) + '\r\n')
+            acc_all, acc = accuracy(output, target)
+            if seeout:
+                writepred = output.cpu().numpy().tolist()
+                writelabel = target.cpu().numpy().tolist()
+                for i, item in enumerate(writepred) :
+                    outf.writelines(str(item).strip('[').strip(']') + ',' + str(writepred[i]).strip('[').strip(']') +
+                                    ',' + str(writelabel[i]) + '\r\n')
 
             losses.update(loss.item(), datas.size(0))
-
+            Acc1.update(acc)
             # measure elapsed time
             batch_time.update(time.time() - end)
             end = time.time()
 
             if i % opt.plot_every == 0:
+                print("\n ========================= on testset =========================") 
                 print('Test: [{0}/{1}]\t'
                       'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                       'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-                      'Acc {acc} ({acc})\t'.format(
+                      'Acc {acc.val} ({acc.avg})\t'.format(
                        i, len(val_loader), batch_time=batch_time, loss=losses,
-                       acc=acc))
-                # print(' *Test:::::::: label {label} pred {pred}'
-                #             .format(label=target, pred=output))    
-        # print(' *Test:::::::: Acc {acc} Loss {loss.val:.4f}'
-        #       .format(acc=acc, loss=losses))
+                       acc=Acc1))
+
+                print(' *Test:::::::: label {label} pred {pred}'
+                            .format(label=target, pred=output))    
+                print("==================================================")
+
     if seeout:
-        outf.writelines('* Acc {acc} Loss {loss.val:.4f}\r\n'
-                .format(acc=acc, loss=losses))
+        outf.writelines('* Acc {acc.avl} Loss {loss.val:.4f}\r\n'
+                .format(acc=Acc1, loss=losses))
         outf.writelines('======user config========')
         outf.writelines(pformat(opt._state_dict()))
     outf.close()
-    return acc
+    return Acc1
 
 
 def main_worker():
@@ -256,8 +223,8 @@ def train(train_loader, trainer, epoch):
     batch_time = AverageMeter()
     data_time = AverageMeter()
     losses = AverageMeter()
-    top1 = AverageMeter()
-    top5 = AverageMeter()
+    Acc1 = AverageMeter()
+
 
     # switch to train mode
     # model.train()
@@ -274,12 +241,12 @@ def train(train_loader, trainer, epoch):
         trainloss, output = trainer.train_step(label, datas)
 
         print('==========output=======[{}]===='.format(output))
-        acc = accuracy(output, label)
+        acc_all, acc_mean = accuracy(output, label)
         # acc1 = acc[0]
         # acc5 = acc[1]
         losses.update(trainloss.item(), datas.size(0))
-        # top1.update(acc1[0], datas.size(0))
-        # top5.update(acc5[0], datas.size(0))
+        Acc1.update(acc_mean)
+
         
         # if lossesnum > losses.val:
         #     lossesnum = losses.val
@@ -295,20 +262,21 @@ def train(train_loader, trainer, epoch):
        
         batch_time.update(time.time() - end)
         end = time.time()
-        print(' *Test:::::::: label {label} pred {pred}'
+        print("\n on train set ************************")
+        print(' *train:::::::: label {label} pred {pred}'
                     .format(label=label, pred=output))    
         if (ii + 1) % opt.plot_every == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
                   'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
-                  'Acc % {acc} ({acc})\t'.format(
+                  'Acc % {acc.val} ({acc.avg})\t'.format(
                    epoch, ii, len(train_loader), batch_time=batch_time,
-                   data_time=data_time, loss=losses, acc=1))
+                   data_time=data_time, loss=losses, acc=Acc1))
 
-            logging.info(' train-----* ===Epoch: [{0}][{1}/{2}]\t Acc % {acc} Loss {loss.val:.4f}'
-              .format(epoch, ii, len(train_loader), acc=1, loss=losses))
-
+            logging.info(' train-----* ===Epoch: [{0}][{1}/{2}]\t Acc % {acc.val} Loss {loss.val:.4f}'
+              .format(epoch, ii, len(train_loader), acc=Acc1, loss=losses))
+        print("********************************************")
 
 def accuracy(output, target):
     with torch.no_grad():
@@ -318,9 +286,9 @@ def accuracy(output, target):
         pred = output.cpu().numpy()
         label = target.cpu().numpy()
 
-        acc = (pred - label) / label
-
-        return acc
+        acc_all = (pred - label) / label
+        acc_mean = np.abs(acc_all).mean()
+        return acc_all, acc_mean
 
 
 
