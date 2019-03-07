@@ -113,7 +113,7 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
             output = model(datas)
             loss = criterion(output, target)
             # measure accuracy and record loss
-            acc = accuracy(output, target, topk=(1, 5))
+            acc = accuracy(output, target)
             # if seeout:
             #     writepred = pred5.tolist()
             #     max5out = max5out.tolist()
@@ -134,7 +134,8 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
                       'Acc {acc} ({acc})\t'.format(
                        i, len(val_loader), batch_time=batch_time, loss=losses,
                        acc=acc))
-
+                print(' *Test:::::::: label {label} pred {label}'
+                            .format(label=label, pred=pred))    
         print(' *Test:::::::: Acc {acc} Loss {loss.val:.4f}'
               .format(acc=acc, loss=losses))
     if seeout:
