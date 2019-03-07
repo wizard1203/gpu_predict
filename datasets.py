@@ -33,7 +33,7 @@ class gpuDataset:
         self.begin_num = begin_num
         self.end_num = end_num
         self.columns = columns
-        self.df = df = pd.read_csv(self.file, header=0)
+        self.df = pd.read_csv(self.file, header=0)
         self.li = list(range(self.begin_num, self.end_num))
         random.shuffle(self.li)
 
@@ -51,9 +51,9 @@ class gpuDataset:
 
         """
         # Load a sample
-        label = df['avg_power'].loc[self.li[i]]
+        label = self.df['avg_power'].loc[self.li[i]]
 
-        datas = df[self.columns].loc[self.li[i]]
+        datas = self.df[self.columns].loc[self.li[i]]
 
         return label, datas
 

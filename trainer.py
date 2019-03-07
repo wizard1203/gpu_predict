@@ -10,7 +10,6 @@ import torch as t
 
 from config import opt
 from torchnet.meter import ConfusionMeter, AverageValueMeter
-from myoptimizer import get_optimizer
 
 class GPUNetTrainer(nn.Module):
     """
