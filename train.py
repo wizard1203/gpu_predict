@@ -108,7 +108,7 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
             # target = target.cuda(args.gpu, non_blocking=True)
 
             # compute output
-            target = target.cuda()
+            target = target.cuda().float()
             datas = datas.cuda().float()
             output = model(datas)
             loss = criterion(output, target)
