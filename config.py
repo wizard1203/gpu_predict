@@ -54,11 +54,11 @@ class Config:
     load_path = None
     save_path = '~/water/modelparams'
 
-    train_begin = 1
-    train_end = 500
+    train_begin = 0
+    train_end = 524
 
-    test_begin = 700
-    test_end = 900
+    test_begin = 525
+    test_end = 749
 
     columns = range(2,14)
 

@@ -23,7 +23,7 @@ from config import opt
 import logging
 class gpuDataset:
 
-    def __init__(self, columns, begin_num=1, end_num=500, data_dir='./gtx980-high-dvfs-real-small-workload-features.csv', split='train'):
+    def __init__(self, columns, begin_num=0, end_num=500, data_dir='./gtx980-high-dvfs-real-small-workload-features.csv', split='train'):
         """
         Args:
             split:
@@ -34,7 +34,7 @@ class gpuDataset:
         self.end_num = end_num
         self.columns = columns
         self.df = pd.read_csv(self.file, header=0)
-        self.li = list(range(self.begin_num, self.end_num))
+        self.li = list(range(self.begin_num, self.end_num + 1))
         random.shuffle(self.li)
 
     def __len__(self):
@@ -51,9 +51,11 @@ class gpuDataset:
 
         """
         # Load a sample
-        label = self.df['avg_power'].loc[self.li[i]]
+        # label = self.df['avg_power'].loc[self.li[i]]
+        # datas = self.df[self.columns].loc[self.li[i]]
 
-        datas = self.df[self.columns].loc[self.li[i]]
+        label = df['avg_power'].iloc[self.li[i]]
+        datas = df.iloc[self.columns, self.li[i]]
 
         return label, datas
 
