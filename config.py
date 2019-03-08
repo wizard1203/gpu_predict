@@ -31,7 +31,7 @@ class Config:
 
     # param for optimizer
     lr = 0.001
-    weight_decay = 0.00005
+    weight_decay = 0.000005
     lr_decay = 0.33  #
 
     # record i-th log
