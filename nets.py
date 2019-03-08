@@ -133,7 +133,7 @@ class DenseNet_in39(nn.Module):
         self.classifier = nn.Linear(num_features, num_classes)
     
     def forward(self, x):
-        x = x.view(-1, 13)
+        x = x.view(-1, 39)
         features = self.features(x)
         out = F.relu(features, inplace=True)
         # out = F.avg_pool2d(out, kernel_size=7).view(features.size(0), -1)
