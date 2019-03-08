@@ -53,7 +53,7 @@ class _Transition(nn.Sequential):
         """
         super(_Transition, self).__init__()
         self.add_module('norm', nn.BatchNorm1d(num_input_features))
-        self.add_module('relu', nn.ReLU(inplace=True))
+        # self.add_module('relu', nn.ReLU(inplace=True))
         self.add_module('fc', nn.Linear(num_input_features, num_output_features))
 
 # a example of densenet
@@ -101,7 +101,7 @@ class DenseNet(nn.Module):
 # a example of densenet
 class DenseNet_in39(nn.Module):
     
-    def __init__(self, growth_rate=10, block_config=(4, 6, 8, 4),
+    def __init__(self, growth_rate=10, block_config=(8, 16, 24, 16),
                  num_init_features=39, bn_size=4, drop_rate=0.5, num_classes=1):
         
         super(DenseNet_in39, self).__init__()
