@@ -21,6 +21,9 @@ CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_39 --lr 0.0008 --epoc
 CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.0007 --epoch 120 --kind gpu_net_390.0007  --out gpu_net_390.0007  
 
 
-
+CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_39 --lr 0.02 --epoch 120 --kind gpu_net_390.02   --out gpu_net_390.02
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_39 --lr 0.01 --epoch 120 --kind gpu_net_390.02   --out gpu_net_390.01  
+CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_39 --lr 0.008 --epoch 120 --kind gpu_net_390.02    --out gpu_net_390.008   
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.007 --epoch 120 --kind gpu_net_390.02   --out gpu_net_390.007  
 
 

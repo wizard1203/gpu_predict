@@ -93,7 +93,7 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
             end = time.time()
 
             if i % opt.plot_every == 0:
-                print("\n ========================= on testset =========================") 
+                # print("\n ========================= on testset =========================") 
                 print('Test: [{0}/{1}]\t'
                       'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                       'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
@@ -101,9 +101,9 @@ def validate(val_loader, model, criterion, outfile='predict', seeout = False):
                        i, len(val_loader), batch_time=batch_time, loss=losses,
                        acc=Acc1))
 
-                print(' *Test:::::::: label {label} pred {pred}'
-                            .format(label=target, pred=output))    
-                print("==================================================")
+                # print(' *Test:::::::: label {label} pred {pred}'
+                #             .format(label=target, pred=output))    
+                # print("==================================================")
 
     if seeout:
         outf.writelines('* Acc {acc.avg} Loss {loss.val:.4f}\r\n'
@@ -263,8 +263,8 @@ def train(train_loader, trainer, epoch):
         batch_time.update(time.time() - end)
         end = time.time()
         print("\n on train set ************************")
-        print(' *train:::::::: label {label} pred {pred}'
-                    .format(label=label, pred=output))    
+        # print(' *train:::::::: label {label} pred {pred}'
+        #             .format(label=label, pred=output))    
         if (ii + 1) % opt.plot_every == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
