@@ -1,15 +1,26 @@
-CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.01 --epoch 120 --kind aaa0.01  --out aaa0.01 
-CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.05 --epoch 120 --kind aaa0.05  --out aaa0.05 
-CUDA_VISIBLE_DEVICES=2 python train.py main --lr 0.009 --epoch 120 --kind aaa0.009   --out aaa0.009   
-CUDA_VISIBLE_DEVICES=3 python train.py main --lr 0.005 --epoch 120 --kind aaa0.005  --out aaa0.005 
+CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_13 --lr 0.01 --epoch 120 --kind aaa0.01  --out aaa0.01 
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_13 --lr 0.05 --epoch 120 --kind aaa0.05  --out aaa0.05 
+CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_13 --lr 0.009 --epoch 120 --kind aaa0.009   --out aaa0.009   
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_13 --lr 0.005 --epoch 120 --kind aaa0.005  --out aaa0.005 
 
-CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.002 --epoch 120 --kind aaa0.001  --out aaa0.002
-CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.001 --epoch 120 --kind aaa0.001  --out aaa0.001  
-CUDA_VISIBLE_DEVICES=2 python train.py main --lr 0.0008 --epoch 120 --kind aaa0.0008   --out aaa0.0008   
-CUDA_VISIBLE_DEVICES=3 python train.py main --lr 0.0007 --epoch 120 --kind aaa0.0007  --out aaa0.0007  
+CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_13 --lr 0.002 --epoch 120 --kind aaa0.002  --out aaa0.002
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_13 --lr 0.001 --epoch 120 --kind aaa0.001  --out aaa0.001  
+CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_13 --lr 0.0008 --epoch 120 --kind aaa0.0008   --out aaa0.0008   
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_13 --lr 0.0007 --epoch 120 --kind aaa0.0007  --out aaa0.0007  
  
-CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.0005 --epoch 120 --kind aaa0.0005  --out aaa0.0005  
-CUDA_VISIBLE_DEVICES=2 python train.py main --lr 0.0002 --epoch 120 --kind aaa0.0002  --out aaa0.0002  
-CUDA_VISIBLE_DEVICES=3 python train.py main --lr 0.0001 --epoch 120 --kind aaa0.0001  --out aaa0.0001  
-CUDA_VISIBLE_DEVICES=0 python train.py main --lr 0.00005 --epoch 120 --kind aaa0.00005 --out aaa0.00005 
-CUDA_VISIBLE_DEVICES=1 python train.py main --lr 0.00002 --epoch 120 --kind aaa0.00002  --out aaa0.00002 
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_13 --lr 0.0005 --epoch 120 --kind aaa0.0005  --out aaa0.0005  
+CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_13 --lr 0.0002 --epoch 120 --kind aaa0.0002  --out aaa0.0002  
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_13 --lr 0.0001 --epoch 120 --kind aaa0.0001  --out aaa0.0001  
+CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_13 --lr 0.00005 --epoch 120 --kind aaa0.00005 --out aaa0.00005 
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_13 --lr 0.00002 --epoch 120 --kind aaa0.00002  --out aaa0.00002 
+
+
+CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_39 --lr 0.002 --epoch 120 --kind gpu_net_390.002  --out gpu_net_390.002
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_39 --lr 0.001 --epoch 120 --kind gpu_net_390.001  --out gpu_net_390.001  
+CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_39 --lr 0.0008 --epoch 120 --kind gpu_net_390.0008   --out gpu_net_390.0008   
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.0007 --epoch 120 --kind gpu_net_390.0007  --out gpu_net_390.0007  
+
+
+
+
+
