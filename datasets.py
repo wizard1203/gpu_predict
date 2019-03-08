@@ -79,7 +79,7 @@ class TrainDataset(Dataset):
         # print("==========*** =datas : ==============".format(datas))
         # print(type(datas))
         datas = t.from_numpy(datas)
-        datas = datas.contiguous().view(1, 13)
+        datas = datas.contiguous().view(1, len(self.config.columns))
         # TODO: check whose stride is negative to fix this instead copy all
         
 
@@ -105,7 +105,7 @@ class TestDataset(Dataset):
         # print("==========*** =datas : ==============".format(datas))
         # print(type(datas))
         datas = t.from_numpy(datas)
-        datas = datas.contiguous().view(1, 13)
+        datas = datas.contiguous().view(1, len(self.config.columns))
         # TODO: check whose stride is negative to fix this instead copy all
 
         return label, datas
