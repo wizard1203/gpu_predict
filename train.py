@@ -262,7 +262,7 @@ def train(train_loader, trainer, epoch):
        
         batch_time.update(time.time() - end)
         end = time.time()
-        print("\n on train set ************************")
+        # print("\n on train set ************************")
         # print(' *train:::::::: label {label} pred {pred}'
         #             .format(label=label, pred=output))    
         if (ii + 1) % opt.plot_every == 0:
@@ -276,7 +276,7 @@ def train(train_loader, trainer, epoch):
 
             logging.info(' train-----* ===Epoch: [{0}][{1}/{2}]\t Acc % {acc.val} Loss {loss.val:.4f}'
               .format(epoch, ii, len(train_loader), acc=Acc1, loss=losses))
-        print("********************************************")
+        # print("********************************************")
 
 def accuracy(output, target):
     with torch.no_grad():
