@@ -101,7 +101,7 @@ class DenseNet(nn.Module):
 # a example of densenet
 class DenseNet_in39(nn.Module):
     
-    def __init__(self, growth_rate=10, block_config=(4, 6, 8),
+    def __init__(self, growth_rate=10, block_config=(4, 6, 8, 4),
                  num_init_features=39, bn_size=4, drop_rate=0.5, num_classes=1):
         
         super(DenseNet_in39, self).__init__()
@@ -137,5 +137,5 @@ class DenseNet_in39(nn.Module):
         features = self.features(x)
         out = F.relu(features, inplace=True)
         # out = F.avg_pool2d(out, kernel_size=7).view(features.size(0), -1)
-        out = self.classifier(features)
+        out = self.classifier(out)
         return out
