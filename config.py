@@ -20,7 +20,7 @@ class Config:
 
     # architecture of network
     customize = True
-    arch = 'gpudsnet'
+    arch = 'gpu_net_13'
 
     train_num_workers = 8
     test_num_workers = 8
@@ -61,8 +61,8 @@ class Config:
     test_begin = 525
     test_end = 749
 
-    columns = list(range(2, 15))
-
+    columns_13 = list(range(2, 15))
+    columns_39 = list(range(17, 56))
     # columns = (379, 385, 390, 391, 392, 406, 414, 415, 416, 417, 418, 419, 420, 422,
     # 425, 434, 435, 436, 438, 439, 440, 441, 443, 444, 445, 446, 447, 448, 449,
     # 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 464, 465, 466, 468, 512,
@@ -80,17 +80,17 @@ class Config:
         pprint(self._state_dict())
         print('==========end============')
         if opt.customize:
-            logging_name = 'log' + '_self_' + opt.arch + '_'+ opt.optim + opt.kind + '.txt' 
+            logging_name = 'log' + '_self_' + opt.arch + '_' + opt.optim + opt.kind + '.txt' 
         else:
-            logging_name = 'log' + '_default_' + opt.arch  + '_' + opt.optim + opt.kind + '.txt'
+            logging_name = 'log' + '_default_' + opt.arch + '_' + opt.optim + opt.kind + '.txt'
         if not os.path.exists('log'):
             os.mkdir('log')
 
-        if opt.arch == 'origin':
-            self.columns = self.columns
-        elif opt.arch == 'waterdsnetf_in4_out58':
-            self.columns = self.columns
-        logging_path = os.path.join('log', logging_name) 
+        if opt.arch == 'gpu_net_13':
+            self.columns = self.columns_13
+        elif opt.arch == 'gpu_net_39':
+            self.columns = self.columns_39
+        logging_path = os.path.join('log', logging_name)
     
         logging.basicConfig(level=logging.DEBUG,
                         filename=logging_path,
