@@ -101,7 +101,7 @@ class DenseNet(nn.Module):
 # a example of densenet
 class DenseNet_in39(nn.Module):
     
-    def __init__(self, growth_rate=10, block_config=(3, 3),
+    def __init__(self, growth_rate=10, block_config=(3),
                  num_init_features=39, bn_size=4, drop_rate=0.5, num_classes=1):
         
         super(DenseNet_in39, self).__init__()

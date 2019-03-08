@@ -35,6 +35,12 @@ CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.00002 --epo
 
 ==================================================================================================================================== Shallow
 CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_39 --lr 0.001 --epoch 210 --kind shallow_0.001      --out shallow_0.001      
-CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_39 --lr 0.002 --epoch 210 --kind shallow_0.002      --out shallow_0.002      
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_39 --lr 0.0001 --epoch 210 --kind shallow_0.0001      --out shallow_0.0001      
 CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_39 --lr 0.0005 --epoch 210 --kind shallow_0.0005      --out shallow_0.0005      
-CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.0002 --epoch 210 --kind shallow_0.0002      --out shallow_0.0002      
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.0002 --epoch 210 --kind shallow_0.0002      --out shallow_0.0002 
+
+==================================================================================================================================== 2Shallow
+CUDA_VISIBLE_DEVICES=0 python train.py main --arch gpu_net_39 --lr 0.001 --epoch 210 --kind 2shallow_0.001      --out 2shallow_0.001      
+CUDA_VISIBLE_DEVICES=1 python train.py main --arch gpu_net_39 --lr 0.0001 --epoch 210 --kind 2shallow_0.0001      --out 2shallow_0.0001      
+CUDA_VISIBLE_DEVICES=2 python train.py main --arch gpu_net_39 --lr 0.0005 --epoch 210 --kind 2shallow_0.0005      --out 2shallow_0.0005      
+CUDA_VISIBLE_DEVICES=3 python train.py main --arch gpu_net_39 --lr 0.0002 --epoch 210 --kind 2shallow_0.0002      --out 2shallow_0.0002           
